@@ -1,0 +1,68 @@
+EXPERIMENT NO:8
+-------------------------------------------------------------------------------------------------------------
+AIM: XML in to HTML Using When Function
+-------------------------------------------------------------------------------------------------------------
+File Name: Students.xml 
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" harf="Student.xsl"?>
+<catalog>
+  <cd>
+    <stud_nm>ABC</stud_nm>
+    <dept>CST</dept>
+    <marks>95</marks>
+  </cd>
+  <cd>
+    <stud_nm>PQR</stud_nm>
+    <dept>ETC</dept>
+    <marks>80</marks>
+  </cd>
+  <cd>
+    <stud_nm>XYZ</stud_nm>
+    <dept>Chem</dept>
+    <marks>70</marks>
+  </cd>
+</catalog>
+-------------------------------------------------------------------------------------------------------------
+File Name: Students.xsl
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+<html>
+<body>
+<table border="1">
+    <tr bgcolor="#9acd32">
+      <th>Student Name</th>
+      <th>Marks</th>
+      <th>Avg</th>
+    </tr>
+    <xsl:for-each select="catalog/cd">
+    <tr>
+      <td><xsl:value-of select="stud_nm"/></td>
+      <xsl:choose>
+      <xsl:when test="marks> 90">
+         <td>
+         <xsl:value-of select="marks"/>
+         </td><td>High</td>
+      </xsl:when>
+<xsl:when test="marks> 75">
+         <td>
+         <xsl:value-of select="marks"/>
+         </td><td>Medium</td>
+      </xsl:when>
+      <xsl:otherwise>
+         <td><xsl:value-of select="marks"/></td><td>Low</td>
+      </xsl:otherwise>
+      </xsl:choose>
+    </tr>
+    </xsl:for-each>
+  </table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+-------------------------------------------------------------------------------------------------------------
+Run Command :xsltproc Students.xml Students.xsl
+-------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,26 @@
+EXPERIMENT NO:1
+-------------------------------------------------------------------------------------------------------------
+AIM: To Stady Of Introduction Of XML
+-------------------------------------------------------------------------------------------------------------
+File Name: EX1.xml
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href=""?>
+<Details>
+	<pd>
+        <Personal>Personal Details</Personal>
+		<name>Name: Mahamadabrar Maneri</name>
+		<Address>Address: Kolhapur, Maharashtra</Address>
+	</pd>
+	
+    <cd>
+        <College>College Details</College>
+		<Collegename>College Name: Department of Technology Shivaji University</Collegename>
+		<branch>Branch: Computar Science and Technology</branch>
+		<Rollno>Roll No: 40</Rollno>
+	</cd> 
+	
+</Details>
+-------------------------------------------------------------------------------------------------------------
+Run Command : xmllint Ex1.xml
+-------------------------------------------------------------------------------------------------------------

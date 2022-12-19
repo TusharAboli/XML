@@ -1,0 +1,56 @@
+EXPERIMENT NO:6
+-------------------------------------------------------------------------------------------------------------
+AIM: XML into HTML Using the Short Function
+-------------------------------------------------------------------------------------------------------------
+File Name: bank.xml 
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+  <?xml-stylesheet type="text/xsl" href="Customer.xsl"?>
+<Customer>
+<info>
+    <cust_nm>Abrar</cust_nm>
+    <acc_no>10001</acc_no>
+    <balance>100000</balance>
+ </info>
+ <info>
+    <cust_nm>Tushar</cust_nm>
+    <acc_no>10002</acc_no>
+    <balance>500000</balance>
+  </info>
+  <info>
+    <cust_nm>Shreya</cust_nm>
+    <acc_no>10003</acc_no>
+    <balance>250000</balance>
+  </info>
+  </Customer>
+-------------------------------------------------------------------------------------------------------------
+File Name: Customer.xsl
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+  <html>
+  <body>
+    <table border="1">
+      <tr>
+        <th>Customer Name: </th>
+        <th>Account Number: </th>
+        <th>Balance: </th>
+      </tr>
+      <xsl:for-each select="Customer/info">
+      <xsl:sort select="balance" order="Ascending"/>
+        <tr>
+          <td><xsl:value-of select="cust_nm"/></td>
+          <td><xsl:value-of select="acc_no"/></td>
+          <td><xsl:value-of select="balance"/></td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+</xsl:stylesheet>
+-------------------------------------------------------------------------------------------------------------
+Run Command :xsltproc bank.xml Customer.xsl
+-------------------------------------------------------------------------------------------------------------

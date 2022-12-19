@@ -1,0 +1,66 @@
+EXPERIMENT NO:2
+-------------------------------------------------------------------------------------------------------------
+AIM: XML Using CSS
+-------------------------------------------------------------------------------------------------------------
+File Name: EX2.xml
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="file1.css"?>
+<DOT>
+	<title>Student Details</title>
+	<branch>
+		<name>Name: Mahamadabrar Maneri</name>
+		<branch>Branch: Computar Science and Technology</branch>
+		<Rollno>Roll No: 40</Rollno>
+		<Batch>Batch: B2</Batch>
+    </branch>
+	<branch>
+		<name>Name: Shreya Mahindrakar</name>
+		<branch>Branch: Computar Science and Technology</branch>
+		<Rollno>Roll No: 36</Rollno>
+		<Batch>Batch: B2</Batch>
+    </branch>
+	<branch>
+		<name>Name: Tushar Jadhav</name>
+		<branch>Branch: Computar Science and Technology</branch>
+		<Rollno>Roll No: 25</Rollno>
+		<Batch>Batch: B4</Batch>
+    </branch>
+</DOT>
+
+-------------------------------------------------------------------------------------------------------------
+file1.css
+-------------------------------------------------------------------------------------------------------------
+DOT{
+			font-size:80%;
+			margin:0.5em;
+			font-family: Verdana;
+			display:block;
+		}
+
+title {
+	        display:block;
+			font-weight:bolder;  
+			text-align:center;
+			font-size:30px;
+			background-color: green;
+			color: white;   }
+
+name {
+         	 color:green;
+			 font-weight:bolder;
+			 font-size:20px;
+			 display:block;   }
+
+branch,Rollno, Batch {
+			display:block;
+			border: 1px solid silver;
+			margin:0.5em;
+			padding:0.5em;
+			background-color:whitesmoke;  }
+-------------------------------------------------------------------------------------------------------------
+Run Command : xmllint Ex2.xml
+-------------------------------------------------------------------------------------------------------------
+
+
+

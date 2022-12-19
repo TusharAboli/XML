@@ -1,0 +1,75 @@
+EXPERIMENT NO:3
+-------------------------------------------------------------------------------------------------------------
+AIM: Intarnal And Extarnal DTD
+-------------------------------------------------------------------------------------------------------------
+File Name: EX3.xml (Intarnal DTD)
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="file1.css"?>
+<!DOCTYPE DOT [
+<!ELEMENT DOT (title,branch_1)>
+<!ELEMENT branch_1 (name,branch,Rollno,Batch)> <!ELEMENT title (#PCDATA)> <!ELEMENT branch (#PCDATA)>
+<!ELEMENT name (#PCDATA)> <!ELEMENT Rollno (#PCDATA)> <!ELEMENT Batch (#PCDATA)>
+]>
+<DOT>
+	<title>Student Details</title>
+	<branch_1>
+		<name>Name: Mahamadabrar Maneri</name>
+		<branch>Branch: Computar Science and Technology</branch>
+		<Rollno>Roll No: 40</Rollno>
+		<Batch>Batch: B2</Batch>
+    </branch_1>
+</DOT>
+-------------------------------------------------------------------------------------------------------------
+Run Command : xmllint --valid Ex3.xml
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+File Name: bank.xml (Extarnal DTD)
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0"?>
+<?xml-stylesheet type="text"?>
+<!DOCTYPE bank SYSTEM "external.dtd">
+<bank>
+	<customer>
+		<name>
+			<fname>Aboli</fname>
+			<mname>Jagannath</mname>
+			<lname>Jawale</lname>
+		</name>
+		<address>
+			<city>kolhapur</city>
+			<state>maharashta</state>
+			<country>india</country>
+			<mobno>1254789654</mobno>
+		</address>
+		
+		<transation_type>
+			<account_no>1002</account_no>
+			<date>21/02/2022</date>
+			<amount>25000</amount>
+		</transation_type>
+	</customer>
+</bank>
+-------------------------------------------------------------------------------------------------------------
+File Name: extarnal.dtd (Extarnal DTD)
+-------------------------------------------------------------------------------------------------------------
+<!ELEMENT bank (customer)>
+<!ELEMENT customer (name,address,transation_type)>
+<!ELEMENT name (fname,mname,lname)>
+<!ELEMENT fname (#PCDATA)>
+<!ELEMENT mname (#PCDATA)>
+<!ELEMENT lname (#PCDATA)>
+
+<!ELEMENT address (city,state,country,mobno)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT mobno (#PCDATA)>
+
+<!ELEMENT transation_type (account_no,date,amount)>
+<!ELEMENT account_no (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+-------------------------------------------------------------------------------------------------------------
+Run Command : xmllint --valid bank.xml
+-------------------------------------------------------------------------------------------------------------
+

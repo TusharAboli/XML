@@ -1,0 +1,71 @@
+EXPERIMENT NO:7
+-------------------------------------------------------------------------------------------------------------
+AIM: XML to HTML Using IF Function
+-------------------------------------------------------------------------------------------------------------
+File Name: Students.xml 
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <cd>
+    <stud_nm>ABC</stud_nm>
+    <dept>CST</dept>
+    <marks>95</marks>
+  </cd>
+  <cd>
+    <stud_nm>PQR</stud_nm> 
+    <dept>ETC</dept>
+    <marks>80</marks>  
+  </cd>
+  <cd>
+  <stud_nm>XYZ</stud_nm>
+    <dept>Chem</dept>
+    <marks>90</marks>
+  </cd>
+</catalog>
+-------------------------------------------------------------------------------------------------------------
+File Name: Students.xsl
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+  <html>
+  <body>
+    <table border="1">
+      <tr bgcolor="#9acd32">
+      <th>Student Name</th>
+      <th>Department</th>
+      <th>Marks</th>      
+    </tr>
+<xsl:for-each select="catalog/cd">
+    <tr>
+      <td><xsl:value-of select="stud_nm"/></td>
+      <td><xsl:value-of select="dept"/></td>
+      <td><xsl:value-of select="marks"/></td>        
+    </tr>
+  </xsl:for-each>
+</table>
+<p>Using If Element</p>
+<table border="1">
+  <tr bgcolor="#9acd32">
+  <th>Student Name</th>
+  <th>Department</th>
+  <th>Marks</th>      
+</tr>
+    <xsl:for-each select="catalog/cd">
+    <xsl:if test="marks>80">
+      <tr>
+        <td><xsl:value-of select="stud_nm"/></td>
+        <td><xsl:value-of select="dept"/></td>
+        <td><xsl:value-of select="marks"/></td>        
+      </tr>
+    </xsl:if>
+    </xsl:for-each>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+</xsl:stylesheet>
+-------------------------------------------------------------------------------------------------------------
+Run Command :xsltproc Students.xml Students.xsl
+-------------------------------------------------------------------------------------------------------------

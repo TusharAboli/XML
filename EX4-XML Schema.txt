@@ -1,0 +1,47 @@
+EXPERIMENT NO:4
+-------------------------------------------------------------------------------------------------------------
+AIM: XML Schema
+-------------------------------------------------------------------------------------------------------------
+File Name: bank.xml 
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="bank.xsd">
+<?xml-stylesheet type="text/css" href="file1.css"?>
+  <Customer>
+    <cust_nm>Abrar</cust_nm>
+    <acc_no>45293454432</acc_no>
+    <balance>2508372</balance>
+    <cust_nm>Tushar</cust_nm>
+    <acc_no>34089783261</acc_no>
+    <balance>150050</balance>
+    <cust_nm>Prathamesh</cust_nm>
+    <acc_no>98146840879</acc_no>
+    <balance>313450</balance>
+  </Customer>
+</bank>
+-------------------------------------------------------------------------------------------------------------
+File Name: bank.xsd
+-------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bank">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="100" minOccurs="0">
+                <xs:element name="cust_nm" type="xs:string" />
+                <xs:element name="acc_no" type="xs:string" />
+                <xs:element name="balance" type="xs:int" />
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+-------------------------------------------------------------------------------------------------------------
+Run Command :xmllint --schema bank.xsd bank.xml
+-------------------------------------------------------------------------------------------------------------
